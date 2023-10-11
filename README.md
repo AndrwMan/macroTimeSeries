@@ -9,10 +9,9 @@ The second justifies and applies of Vector Autogression to determine causality b
 * Exposure to writing academic papers
 
 ## Usage 
-The current project initialization process involves the following: 
+The current project initialization process involves the following:
 
 ### Project Creation
-0. 
 1. Ensure that all data is in the same directory where .R file is. Then just open RStudio > "File" > "New Project" > "Existing Directory" > Navigate to & select "<boxJenkins/vecAR dir>". Rproj and other artifacts will be created.   
 2. Ctrl + A > "Run" to run all.
 
@@ -21,10 +20,16 @@ The current project initialization process involves the following:
 
 ### Configuration
 * In boxJenkins.R:
+  * Modify `read.table("<fileName>.csv",header=T,sep=",")` to desired  
   * Modify `models` list to the models you want to test. 
   * Modify `selected_model <- models[[<desiredIdx>]]` where <desiredIdx> is the (best) model you want to see the plots for.
 * In vecAR.R:
-  *    
+  * Modify `read.table("<fileName>.csv",header=T,sep=",")` twice to desired economic datasets
+  * Modfiy `window(<timeSeries>, start= c(<year>, <quarter>),end=c(<year>, <quarter>)` so that you are slicing both time series data to same length. 
+    * Use the more recent date for start since you would lack corresponding data in the shorter data set.
+
+* of course, in both .R files modify everywhere else you used a different variable name
+
 
 ## License
 **Copyright (c) [Andrew Man] [2019-2023]. All Rights Reserved.**
